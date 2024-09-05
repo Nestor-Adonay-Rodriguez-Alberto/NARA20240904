@@ -23,5 +23,12 @@ namespace NARA20240904.Controllers
         }
 
 
+        // GET : Obtener Un Registro Con Ese ID:
+        [HttpGet("{id}")]
+        public Alumnos Get(int id)
+        {
+            Alumnos Objeto_Obtenido = Lista_Alumnos.FirstOrDefault(x => x.IdAlumno == id);
+            return Objeto_Obtenido;
+        }
     }
 }
