@@ -30,5 +30,14 @@ namespace NARA20240904.Controllers
             Alumnos Objeto_Obtenido = Lista_Alumnos.FirstOrDefault(x => x.IdAlumno == id);
             return Objeto_Obtenido;
         }
+
+
+        // POST : Recibe Un Objeto Y Lo Guarda En La Lista:
+        [HttpPost]
+        public IActionResult Post([FromBody] Alumnos alumnos)
+        {
+            Lista_Alumnos.Add(alumnos);
+            return Ok();
+        }
     }
 }
