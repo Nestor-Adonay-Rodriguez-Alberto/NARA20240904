@@ -59,5 +59,23 @@ namespace NARA20240904.Controllers
             }
         }
 
+
+        // DELETE : Obtiene un Objeto con ese ID Y Lo Elimina De La Lista:
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            Alumnos Objeto_Obtenido = Lista_Alumnos.FirstOrDefault(x => x.IdAlumno == id);
+
+            if (Objeto_Obtenido != null)
+            {
+                Lista_Alumnos.Remove(Objeto_Obtenido);
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
     }
 }
