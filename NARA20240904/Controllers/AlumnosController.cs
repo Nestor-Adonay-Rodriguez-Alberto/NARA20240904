@@ -39,5 +39,25 @@ namespace NARA20240904.Controllers
             Lista_Alumnos.Add(alumnos);
             return Ok();
         }
+
+
+        // PUT : Obtiene un Objeto con ese ID Y Lo Modifica:
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] Alumnos alumnos)
+        {
+            Alumnos Objeto_Obtenido = Lista_Alumnos.FirstOrDefault(x => x.IdAlumno == id);
+
+            if (Objeto_Obtenido != null)
+            {
+                Objeto_Obtenido.Nombre = alumnos.Nombre;
+                Objeto_Obtenido.Carrera = alumnos.Carrera;
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
     }
 }
